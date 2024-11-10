@@ -3,7 +3,6 @@
   "version": "Alpha v1.0.0",
   "scripts": {
     "start": "webpack-dev-server --config webpack/webpack.config.js --env env=dev",
-    "build-dev": "webpack --config webpack/webpack.config.js --env env=dev",
     "build": "webpack --config webpack/webpack.config.js --env env=prod",
     "lint:fix": "eslint ./src --fix --color",
     "lint:husky": "npx cross-env HUSKY=true eslint ./src --fix --color",

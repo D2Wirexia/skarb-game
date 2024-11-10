@@ -9,7 +9,7 @@ module.exports = {
   devtool: 'source-map',
   plugins: [
     new Dotenv({
-      path: path.resolve(__dirname, '..', '.env.prod'),
+      path: path.resolve(__dirname, '..', '.env.dev'),
       safe: true,
       systemvars: true,
       silent: true,
@@ -17,7 +17,7 @@ module.exports = {
     new CopyWebpackPlugin({
       patterns: [
         {
-          from: path.resolve(__dirname, '..', 'public', 'robots-production.txt'),
+          from: path.resolve(__dirname, '..', 'public', 'robots-staging.txt'),
           to: path.resolve(__dirname, '..', 'build', 'robots.txt'),
         },
       ],
