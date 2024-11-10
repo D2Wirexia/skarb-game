@@ -1,0 +1,10 @@
+node_modules/
+dist/
+build/
+.idea
+*storybook.log
+*.pem
+
+.env
+.env.dev
+.env.prod
