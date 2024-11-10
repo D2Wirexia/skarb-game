@@ -81,6 +81,10 @@ module.exports = {
           to: 'sprite.svg',
         },
         {
+          from: path.resolve(__dirname, '..', 'public', 'background.png'),
+          to: 'background.png',
+        },
+        {
           from: path.resolve(__dirname, '..', 'assets', 'fonts'),
           to: 'assets/fonts',
         },
