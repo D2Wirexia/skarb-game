@@ -30,10 +30,7 @@ const initialize = createAsyncThunk<void, void, { state: RootState }>(
   },
 )
 
-const logout = createAsyncThunk<void, void, { state: RootState }>(
-  'app/logout',
-  async (_) => {},
-)
+const logout = createAsyncThunk<void, void, { state: RootState }>('app/logout', async (_) => {})
 
 export const appActions = {
   initialize,

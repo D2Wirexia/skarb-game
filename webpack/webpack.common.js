@@ -1,5 +1,6 @@
 const path = require('path')
 
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 const ESLintPlugin = require('eslint-webpack-plugin')
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
 const HTMLWebpackPlugin = require('html-webpack-plugin')
@@ -35,12 +36,11 @@ module.exports = {
         type: 'asset/resource',
       },
       {
-        test: /\.(woff(2)?|eot|ttf|otf)$/,
-        type: 'asset/inline',
-      },
-      {
-        test: /\.svg$/,
-        use: ['@svgr/webpack', 'url-loader'],
+        test: /\.(woff(2)?|eot|ttf|otf)$/i,
+        type: 'asset/resource',
+        generator: {
+          filename: 'assets/fonts/[name][ext][query]',
+        },
       },
       {
         test: /\.svg$/,
@@ -56,13 +56,15 @@ module.exports = {
     ],
   },
   output: {
-    path: path.resolve(__dirname, '..', './build'),
+    path: path.resolve(__dirname, '..', 'build'),
     filename: 'bundle.js',
+    assetModuleFilename: 'assets/[name][ext]',
     publicPath: '/',
+    clean: true,
   },
   plugins: [
     new HTMLWebpackPlugin({
-      //favicon: path.resolve(__dirname, '..', 'public', 'favicon.png'),
+      favicon: path.resolve(__dirname, '..', 'public', 'favicon.ico'),
       filename: 'index.html',
       template: path.resolve(__dirname, '..', 'public', 'index.html'),
     }),
@@ -72,6 +74,22 @@ module.exports = {
     }),
     new ESLintPlugin({
       extensions: ['ts', 'tsx'],
+    }),
+    new CopyWebpackPlugin({
+      patterns: [
+        {
+          from: path.resolve(__dirname, '..', 'public', 'sprite.svg'),
+          to: 'sprite.svg',
+        },
+        {
+          from: path.resolve(__dirname, '..', 'assets', 'fonts'),
+          to: 'assets/fonts',
+        },
+        {
+          from: path.resolve(__dirname, '..', 'assets', 'lottie'),
+          to: 'assets/lottie',
+        },
+      ],
     }),
   ],
 }

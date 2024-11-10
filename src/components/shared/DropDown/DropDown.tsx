@@ -3,7 +3,7 @@ import Select, { type SelectItemRenderer, type SelectRenderer } from 'react-drop
 
 import { CloseIcon, DownIcon, DropDownContainer, Option, Placeholder, UpIcon } from './styles'
 
-import { Checkbox } from '~/components/shared'
+import { Checkbox, IconType } from '~/components/shared'
 
 interface IOptions {
   value: string
@@ -86,6 +86,9 @@ const DropDown: React.FC<IProps> = ({
   }: SelectRenderer<IOptions>): React.ReactElement => {
     return state.values.length ? (
       <CloseIcon
+        icon={IconType.Arrow}
+        width={16}
+        height={16}
         onClick={(e: React.MouseEvent) => {
           e.stopPropagation()
           methods.clearAll()
@@ -99,7 +102,11 @@ const DropDown: React.FC<IProps> = ({
   const customDropdownHandleRenderer = ({
     state,
   }: SelectRenderer<IOptions>): React.ReactElement => {
-    return state.dropdown ? <UpIcon /> : <DownIcon />
+    return state.dropdown ? (
+      <UpIcon icon={IconType.Arrow} width={20} height={20} />
+    ) : (
+      <DownIcon icon={IconType.Arrow} width={20} height={20} />
+    )
   }
 
   return (

@@ -1,7 +1,6 @@
 import styled, { css } from 'styled-components'
 
-import { ReactComponent as ArrowIconSVG } from '@/icons/arrow.svg'
-import { ReactComponent as CloseSVG } from '@/icons/close.svg'
+import { Icon } from '~/components/shared'
 import { CheckboxInput, CheckboxLabel } from '~/components/shared/Checkbox/styles'
 import { Color } from '~/constants'
 
@@ -11,7 +10,7 @@ interface IContainerProps {
   $width?: number
 }
 
-export const UpIcon = styled(ArrowIconSVG)`
+export const UpIcon = styled(Icon)`
   width: 20px;
   height: 20px;
   transform: rotateZ(90deg);
@@ -21,7 +20,7 @@ export const UpIcon = styled(ArrowIconSVG)`
   }
 `
 
-export const DownIcon = styled(ArrowIconSVG)`
+export const DownIcon = styled(Icon)`
   width: 20px;
   height: 20px;
   transform: rotateZ(-90deg);
@@ -31,7 +30,7 @@ export const DownIcon = styled(ArrowIconSVG)`
   }
 `
 
-export const CloseIcon = styled(CloseSVG)`
+export const CloseIcon = styled(Icon)`
   width: 16px;
   height: 16px;
 

@@ -1,13 +1,13 @@
 import styled from 'styled-components'
 
-import { ReactComponent as Checkmark } from '@/icons/checkmark.svg'
+import { Icon } from '~/components/shared'
 import { Color } from '~/constants'
 
 export const LabelName = styled.span`
   margin-left: 6px;
 `
 
-export const CheckmarkIcon = styled(Checkmark)`
+export const CheckmarkIcon = styled(Icon)`
   position: absolute;
   top: 6px;
   left: 4px;

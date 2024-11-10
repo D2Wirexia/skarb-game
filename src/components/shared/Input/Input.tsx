@@ -13,8 +13,6 @@ import {
   TopContent,
 } from './styles'
 
-import { ReactComponent as EyeHideIcon } from '@/icons/eye-hide.svg'
-import { ReactComponent as EyeShowIcon } from '@/icons/eye-show.svg'
 import { emojiRegex } from '~/constants'
 
 interface IProps extends React.ComponentPropsWithoutRef<'input'> {
@@ -103,8 +101,8 @@ const Input: React.FC<IProps> = ({
         )}
         {type === 'password' && (
           <ActionContainer onClick={handleChangeShowPassword} $isHandle>
-            {inputType === 'text' && <EyeHideIcon />}
-            {inputType === 'password' && <EyeShowIcon />}
+            {inputType === 'text' && <span>Hide</span>}
+            {inputType === 'password' && <span>Show</span>}
           </ActionContainer>
         )}
       </InputContainer>
