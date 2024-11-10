@@ -56,8 +56,8 @@ module.exports = {
     ],
   },
   output: {
-    path: path.resolve(__dirname, '..', 'build'),
-    filename: 'bundle.js',
+    path: path.resolve(__dirname, 'build'),
+    filename: '[name].bundle.js',
     assetModuleFilename: 'assets/[name][ext]',
     publicPath: '/',
     clean: true,
