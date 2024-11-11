@@ -2,7 +2,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit'
 
 import { actions, RootState } from '~/store/index'
 
-const MIN_INITIALIZE_DELAY: number = 2500
+const MIN_INITIALIZE_DELAY: number = 500
 
 const initialize = createAsyncThunk<void, void, { state: RootState }>(
   'app/initialize',

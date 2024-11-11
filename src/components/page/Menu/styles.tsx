@@ -1,45 +1,44 @@
-import { motion } from 'framer-motion'
 import hexToRgba from 'hex-to-rgba'
 import styled, { css } from 'styled-components'
 
-import { Link } from '~/components/shared'
-import { Color } from '~/constants'
-
-const widgetStyle = css`
-  background-color: ${hexToRgba(Color.LostInSadness, 0.66)};
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border-radius: 28px;
-  width: 100%;
-  height: 100%;
-  box-shadow: inset 0 4px 50px 1px ${hexToRgba(Color.LostInSadness, 0.75)};
-`
+import { Link, Sculpt } from '~/components/shared'
+import { Color, MEDIA } from '~/constants'
 
 export const Identifier = styled.div`
-  font-size: 15px;
   color: ${hexToRgba(Color.White, 0.77)};
-  line-height: 120%;
+
+  ${({ theme }) => css`
+    font-size: ${theme.responsive(15)};
+  `}
 `
 export const Nickname = styled.div`
-  font-size: 20px;
   color: ${Color.White};
-  line-height: 120%;
+
+  ${({ theme }) => css`
+    font-size: ${theme.responsive(20)};
+  `}
 `
 export const UserInfo = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 5px;
   justify-content: center;
   align-items: start;
+
+  ${({ theme }) => css`
+    gap: ${theme.responsive(5)};
+  `}
 `
 export const UserContainer = styled(Link.AppNavigation)`
   display: flex;
-  gap: 8px;
   align-items: center;
   cursor: pointer;
   background-color: transparent;
-  border-radius: 8px;
-  padding: 4px 10px;
+
+  ${({ theme }) => css`
+    gap: ${theme.responsive(8)};
+    border-radius: ${theme.responsive(8)};
+    padding: ${theme.responsive(4, 10)};
+  `}
 
   &:hover,
   &:focus {
@@ -48,44 +47,61 @@ export const UserContainer = styled(Link.AppNavigation)`
 `
 
 export const Logo = styled.div`
-  font-size: 22px;
   color: ${Color.White};
+
+  ${({ theme }) => css`
+    font-size: ${theme.responsive(22)};
+  `}
 `
 
-export const Content = styled(motion.section)`
-  ${widgetStyle};
+export const Content = styled(Sculpt.BoardSection)`
+  grid-area: content;
 `
 
-export const Navbar = styled(motion.nav)`
-  ${widgetStyle};
+export const Navbar = styled(Sculpt.BoardSection)`
+  grid-area: navbar;
 `
 
 export const RightSide = styled.div`
   display: flex;
-  gap: 24px;
   align-items: center;
+
+  ${({ theme }) => css`
+    gap: ${theme.responsive(24)};
+  `}
 `
 export const LeftSide = styled.div``
 
-export const Header = styled(motion.header)`
-  ${widgetStyle};
+export const Header = styled(Sculpt.BoardSection)`
   grid-area: header;
-  padding: 0 42px;
-  min-height: 92px;
   display: flex;
-  gap: 24px;
   align-items: center;
   justify-content: space-between;
+
+  ${({ theme }) => css`
+    padding: ${theme.responsive(0, 42)};
+    gap: ${theme.responsive(24)};
+    height: ${theme.responsive(88)};
+  `}
 `
 export const Wrapper = styled.div`
   width: 100%;
   height: 100%;
-  padding: 45px 40px 40px;
   display: grid;
-  gap: 40px;
-  grid-template-columns: 280px 1fr;
   grid-template-rows: auto 1fr;
   grid-template-areas:
     'header header'
     'navbar content';
+
+  ${({ theme }) => css`
+    padding: ${theme.responsive(45, 40, 40)};
+    gap: ${theme.responsive(40)};
+    grid-template-columns: ${theme.responsive(280)} 1fr;
+
+    ${MEDIA.MW} {
+      grid-template-columns: ${theme.responsive(90)} 1fr;
+      gap: ${theme.responsive(18)};
+      padding: ${theme.responsive(24)};
+    }
+  `}
 `

@@ -5,7 +5,6 @@ import { Color } from '~/constants'
 export const LabelName = styled.span`
   display: inline-block;
   font-size: 16px;
-  line-height: 22px;
   color: ${Color.White};
   padding-right: 6px;
 `

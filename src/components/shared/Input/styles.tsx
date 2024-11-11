@@ -19,7 +19,6 @@ export const BottomContainer = styled.div`
   min-height: 16px;
   height: auto;
   font-size: 12px;
-  line-height: 16px;
   padding: 0 6px;
 `
 export const ActionContainer = styled.div<{ $isHandle: boolean }>`
@@ -58,7 +57,6 @@ export const InputField = styled.input`
   &::placeholder {
     color: ${Color.White};
     font-size: 16px;
-    line-height: 22px;
   }
 
   &:-webkit-autofill {
@@ -89,12 +87,10 @@ export const InputContainer = styled.div<IInputField>`
 export const Hint = styled.div`
   color: ${Color.White};
   font-size: 12px;
-  line-height: 18px;
 `
 export const Label = styled.div`
   color: ${Color.White};
   font-size: 16px;
-  line-height: 22px;
 `
 export const TopContent = styled.div`
   display: flex;

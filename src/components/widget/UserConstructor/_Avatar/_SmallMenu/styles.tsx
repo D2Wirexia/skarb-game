@@ -1,27 +1,40 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
 export const Photo = styled.img`
   position: absolute;
-  width: 58px;
-  height: 58px;
   border-radius: 50%;
   user-select: none;
   -webkit-user-drag: none;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
+  aspect-ratio: 1;
+
+  ${({ theme }) => css`
+    width: calc(100% - ${theme.responsive(10)});
+    height: calc(100% - ${theme.responsive(10)});
+  `}
 `
 
 export const Horseshoe = styled.div`
   position: absolute;
   top: 0;
+
+  svg {
+    width: 100%;
+    height: 100%;
+  }
 `
 
 export const Container = styled.div`
-  width: 68px;
-  height: 68px;
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
+
+  ${({ theme }) => css`
+    width: ${theme.responsive(68)};
+    min-width: ${theme.responsive(68)};
+    height: ${theme.responsive(68)};
+  `}
 `

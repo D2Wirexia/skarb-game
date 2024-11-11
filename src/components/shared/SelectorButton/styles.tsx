@@ -20,7 +20,6 @@ export const SelectorButtonLabel = styled.label<ILabelProps>`
   align-items: center;
   justify-content: center;
   font-size: 16px;
-  line-height: 20px;
   text-align: center;
   height: fit-content;
   width: fit-content;

@@ -1,4 +1,5 @@
 import React from 'react'
+import styled, { css } from 'styled-components'
 
 export enum IconType {
   Notification = 'notification',
@@ -15,10 +16,17 @@ interface IProps extends React.ComponentPropsWithoutRef<'svg'> {
 
 const Icon: React.FC<IProps> = ({ icon, width, height, ...rest }) => {
   return (
-    <svg width={width} height={height} {...rest}>
+    <SVG width={width} height={height} {...rest}>
       <use xlinkHref={`sprite.svg#${icon}`} />
-    </svg>
+    </SVG>
   )
 }
+
+const SVG = styled.svg`
+  ${({ theme, width, height }) => css`
+    width: ${theme.responsive(Number(width))};
+    height: ${theme.responsive(Number(height))};
+  `}
+`
 
 export default React.memo(Icon)

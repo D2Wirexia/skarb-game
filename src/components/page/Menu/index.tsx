@@ -72,7 +72,9 @@ const Menu: React.FC = () => {
           transition: { delay: 0 },
         }}
         transition={transition}
-      ></Navbar>
+      >
+        &nbsp;
+      </Navbar>
       <Content
         initial={{
           opacity: 0,
@@ -88,7 +90,9 @@ const Menu: React.FC = () => {
           transition: { delay: 0 },
         }}
         transition={transition}
-      ></Content>
+      >
+        &nbsp;
+      </Content>
     </Wrapper>
   )
 }

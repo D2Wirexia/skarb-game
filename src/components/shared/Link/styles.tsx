@@ -9,7 +9,6 @@ interface IStyledAnchorProps {
 
 export const StyledAnchor = styled.a<IStyledAnchorProps>`
   font-size: 14px;
-  line-height: 22px;
   font-weight: 400;
   color: ${Color.White};
   text-decoration: none;
@@ -18,7 +17,6 @@ export const StyledAnchor = styled.a<IStyledAnchorProps>`
     $small &&
     css`
       font-size: 16px;
-      line-height: 18px;
       font-weight: 600;
     `}
 
@@ -30,7 +28,6 @@ export const StyledAnchor = styled.a<IStyledAnchorProps>`
 
 export const StyledLink = styled(Link)`
   font-size: 14px;
-  line-height: 22px;
   font-weight: 600;
   color: ${Color.White};
   text-decoration: none;

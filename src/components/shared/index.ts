@@ -1,5 +1,6 @@
 export { default as Button } from './Button'
 export { default as Icon, IconType } from './Icon'
+export { default as Sculpt } from './Sculpt'
 export * from './Checkbox'
 export * from './Shimmer'
 export * from './SelectorButton'

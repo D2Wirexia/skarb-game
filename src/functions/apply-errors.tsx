@@ -20,7 +20,6 @@ export const applyErrors = <F extends FieldValues>(
 
 const ErrorLink = styled(Link)`
   font-size: 12px;
-  line-height: 16px;
   font-weight: 700;
   color: ${Color.White};
   text-decoration: none;

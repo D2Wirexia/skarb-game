@@ -9,16 +9,21 @@ interface IContainerProps extends React.ButtonHTMLAttributes<HTMLButtonElement> 
 }
 
 export const TargetContainer = styled.button<IContainerProps>`
-  border-radius: 40px;
-  font-size: 16px;
-  line-height: 22px;
   font-weight: 600;
   white-space: nowrap;
   cursor: pointer;
   background: ${Color.White};
   color: ${Color.PurpleNoir};
-  border: 2px solid transparent;
   transition: var(--transition);
+
+  ${({ theme, size }) => css`
+    width: ${theme.responsive(size ? size[0] ?? 308 : 308)};
+    height: ${theme.responsive(size ? size[1] ?? 42 : 42)};
+
+    font-size: ${theme.responsive(16)};
+    border-radius: ${theme.responsive(40)};
+    border: ${theme.responsive(2)} solid transparent;
+  `}
 
   &:disabled {
     opacity: 0.5;
@@ -38,10 +43,4 @@ export const TargetContainer = styled.button<IContainerProps>`
     css`
       background: ${Color.BubblegumCrisis};
     `}
-
-  ${({ size }) => css`
-    min-width: ${size ? size[0] ?? 308 : 308}px;
-    width: ${size ? size[0] ?? 308 : 308}px;
-    height: ${size ? size[1] ?? 42 : 42}px;
-  `}
 `

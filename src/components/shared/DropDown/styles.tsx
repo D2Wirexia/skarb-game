@@ -41,7 +41,6 @@ export const CloseIcon = styled(Icon)`
 
 export const Option = styled.div<IContainerProps>`
   font-size: 16px;
-  line-height: 22px;
   font-weight: 600;
   color: ${({ $isActive }) => ($isActive ? Color.White : Color.White)};
   padding: 4px 0;
@@ -54,7 +53,6 @@ export const Option = styled.div<IContainerProps>`
 export const Placeholder = styled.div`
   font-size: 16px;
   font-weight: 600;
-  line-height: 22px;
   color: ${Color.White};
 `
 

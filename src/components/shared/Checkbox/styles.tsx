@@ -22,7 +22,6 @@ export const CheckboxLabel = styled.label`
   max-width: 100%;
   width: 100%;
   font-size: 16px;
-  line-height: 22px;
   color: ${Color.White};
   position: relative;
 
