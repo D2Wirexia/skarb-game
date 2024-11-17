@@ -6,8 +6,9 @@ import { ThemeProvider } from 'styled-components'
 
 import { GlobalStyles } from './styles'
 
-import HelmetApp from '~/components/app/HelmetApp'
-import RouteApp from '~/components/app/RouteApp'
+import AppHelmet from '~/components/app/AppHelmet'
+import AppProvider from '~/components/app/AppProvider'
+import AppRoute from '~/components/app/AppRoute'
 import { ToastMessage } from '~/components/shared'
 import { useTheme } from '~/hooks'
 import { store, persistor } from '~/store'
@@ -20,10 +21,12 @@ const App: React.FC = () => {
       <Provider store={store} key="provider">
         <PersistGate persistor={persistor}>
           <ThemeProvider theme={theme}>
-            <GlobalStyles />
-            <HelmetApp />
-            <RouteApp />
-            <ToastMessage />
+            <AppProvider>
+              <GlobalStyles />
+              <AppHelmet />
+              <AppRoute />
+              <ToastMessage />
+            </AppProvider>
           </ThemeProvider>
         </PersistGate>
       </Provider>

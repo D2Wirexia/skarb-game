@@ -1,31 +1,20 @@
-import lottie, { AnimationItem } from 'lottie-web'
-import React, { useEffect, useRef } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { Outlet } from 'react-router-dom'
 
-import { Wrapper, ConnectionAnimation, Status, Version, MainWrapper } from './styles'
+import { Wrapper } from './styles'
 
-import astronaut from '@/lottie/astronaut.json'
-import { EnvService } from '~/services'
+import { AppContext } from '~/components/app/AppProvider'
+import {
+  ConfirmAccountScreen,
+  ConnectionScreen,
+  NewSessionDetectedScreen,
+} from '~/components/screens'
 import { actions, useAppDispatch, useAppSelector } from '~/store'
 
 const ConnectionLayout: React.FC = () => {
-  const isInitialized = useAppSelector((state) => state.user.isInitialized)
-  const containerRef = useRef<HTMLDivElement | null>(null)
-  const animationRef = useRef<AnimationItem | null>(null)
-
+  const { isInitialized, isAuthenticated, emailConfirmed } = useAppSelector((state) => state.user)
+  const { isTwink } = useContext(AppContext)
   const dispatch = useAppDispatch()
-
-  useEffect(() => {
-    animationRef.current = lottie.loadAnimation({
-      container: containerRef.current as Element,
-      renderer: 'svg',
-      loop: true,
-      autoplay: true,
-      animationData: astronaut,
-    })
-
-    return () => animationRef.current?.destroy()
-  }, [])
 
   useEffect(() => {
     if (!isInitialized) {
@@ -34,19 +23,21 @@ const ConnectionLayout: React.FC = () => {
   }, [isInitialized])
 
   if (!isInitialized) {
-    return (
-      <Wrapper>
-        <ConnectionAnimation ref={containerRef} />
-        <Status>Initialization...</Status>
-        <Version>Version: {EnvService.appVersion}</Version>
-      </Wrapper>
-    )
+    return <ConnectionScreen />
+  }
+
+  if (isAuthenticated && !emailConfirmed) {
+    return <ConfirmAccountScreen />
+  }
+
+  if (isTwink) {
+    return <NewSessionDetectedScreen />
   }
 
   return (
-    <MainWrapper>
+    <Wrapper>
       <Outlet />
-    </MainWrapper>
+    </Wrapper>
   )
 }
 

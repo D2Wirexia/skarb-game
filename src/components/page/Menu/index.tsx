@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 
 import {
   Wrapper,
@@ -14,6 +14,7 @@ import {
   Content,
 } from './styles'
 
+import { AppContext } from '~/components/app/AppProvider'
 import { AppConstructor, LanguagePicker, UserConstructor } from '~/components/widget'
 import { Route } from '~/constants'
 import { replaceParams } from '~/functions'
@@ -23,6 +24,7 @@ const transition = { duration: 0.5, type: 'tween', stiffness: 500, delay: 0.3 }
 
 const Menu: React.FC = () => {
   const { identifier, photo, nickname } = useAppSelector((state) => state.user)
+  const { setIsTwink } = useContext(AppContext)
 
   return (
     <Wrapper>
@@ -43,7 +45,7 @@ const Menu: React.FC = () => {
         transition={transition}
       >
         <LeftSide>
-          <Logo>Skarb Game</Logo>
+          <Logo onClick={() => setIsTwink(true)}>Skarb Game</Logo>
         </LeftSide>
         <RightSide>
           <LanguagePicker />

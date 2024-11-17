@@ -23,8 +23,8 @@ export const userReducer = createSlice({
   name: 'user',
   initialState,
   reducers: {
-    init: (state: IUserState): IUserState => {
-      return { ...state, isInitialized: true }
+    init: (state: IUserState): void => {
+      state.isInitialized = true
     },
     cleanUser: (): IUserState => {
       localStorage.removeItem(LocalStorageKeys.Session)

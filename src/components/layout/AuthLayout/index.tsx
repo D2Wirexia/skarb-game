@@ -7,11 +7,27 @@ import { Button } from '~/components/shared'
 import { actions, useAppDispatch } from '~/store'
 
 const AuthLayout: React.FC = () => {
-  const [isLoading, setLoading] = useState(false)
+  const [isLoading, setLoading] = useState<string | null>(null)
   const dispatch = useAppDispatch()
 
-  const handleAuth = useCallback(async () => {
-    setLoading(true)
+  const handleSignIn = useCallback(async () => {
+    setLoading('sign_in')
+    await new Promise((res) => setTimeout(res, 1000))
+    dispatch(actions.user.updateToken('token'))
+    dispatch(
+      actions.user.updateUser({
+        email: 'example@gmail.com',
+        emailConfirmed: true,
+        nickname: 'Wirexia',
+        photo:
+          'https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSJhcetOBwA-I9T3Jud_ScdMlVEs5UD09XXZXD_7RomhU6cjA_t',
+        identifier: 'b9E5-cKf4-q3N',
+      }),
+    )
+  }, [])
+
+  const handleSignUp = useCallback(async () => {
+    setLoading('sign_up')
     await new Promise((res) => setTimeout(res, 1000))
     dispatch(actions.user.updateToken('token'))
     dispatch(
@@ -40,10 +56,15 @@ const AuthLayout: React.FC = () => {
         <Button.Simple
           size={[205, 52]}
           label="Sign in"
-          isLoading={isLoading}
-          onClick={handleAuth}
+          isLoading={isLoading === 'sign_in'}
+          onClick={handleSignIn}
         />
-        <Button.Simple size={[205, 52]} label="Sign up" />
+        <Button.Simple
+          size={[205, 52]}
+          label="Sign up"
+          isLoading={isLoading === 'sign_up'}
+          onClick={handleSignUp}
+        />
       </GroupButtons>
       <Astronaut src={astronaut} alt="astronaut" />
     </Wrapper>

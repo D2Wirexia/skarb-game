@@ -6,6 +6,7 @@ export enum IconType {
   Close = 'close',
   Arrow = 'arrow',
   Checkmark = 'checkmark',
+  Envelope = 'envelope',
 }
 
 interface IProps extends React.ComponentPropsWithoutRef<'svg'> {

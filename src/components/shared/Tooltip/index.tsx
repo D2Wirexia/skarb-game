@@ -48,7 +48,12 @@ const Tooltip: React.FC<IProps> = ({
       defaultIsOpen={defaultIsOpen}
       isOpen={isOpen}
       $maxWidth={maxWidth}
-      style={{ borderRadius: '8px', padding: '0', background: 'transparent' }}
+      style={{
+        borderRadius: '8px',
+        padding: '0',
+        background: 'transparent',
+        fontFamily: 'var(--font-roboto)',
+      }}
       setIsOpen={(isOpen: boolean) => !isOpen && toggleIsOpen(isOpen)}
       globalCloseEvents={{
         escape: true,
