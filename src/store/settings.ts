@@ -1,14 +1,21 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice, type PayloadAction } from '@reduxjs/toolkit'
 
-export interface ISettingsState {}
+export interface ISettingsState {
+  mainMenuVolume: number
+}
 
-const initialState: ISettingsState = {}
+const initialState: ISettingsState = {
+  mainMenuVolume: 0.7,
+}
 
 export const settingsReducer = createSlice({
   name: 'settings',
   initialState,
   reducers: {
     clean: (): ISettingsState => initialState,
+    setMainMenuVolume: (state: ISettingsState, action: PayloadAction<number>) => {
+      state.mainMenuVolume = action.payload
+    },
   },
 })
 

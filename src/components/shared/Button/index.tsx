@@ -1,5 +1,6 @@
 import React from 'react'
 
+import MenuButton from './_MainMenu'
 import ButtonSimple from './_Simple'
 
 export interface ButtonProps extends React.ComponentPropsWithoutRef<'button'> {
@@ -8,13 +9,11 @@ export interface ButtonProps extends React.ComponentPropsWithoutRef<'button'> {
   isLoading?: boolean
 }
 
-const Button: React.FC<ButtonProps & { view: 'simple' }> = ({ view, ...props }) => {
-  switch (view) {
-    case 'simple':
-      return <ButtonSimple {...props} />
-  }
+const Button: React.FC = () => {
+  return undefined
 }
 
 export default Object.assign(Button, {
   Simple: ButtonSimple,
+  MenuButton: MenuButton,
 })

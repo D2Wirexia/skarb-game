@@ -1,4 +1,5 @@
-import React, { createContext, useCallback, useState } from 'react'
+import React, { createContext, useCallback, useEffect, useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import { useNavigate } from 'react-router-dom'
 
 import { Route } from '~/constants'
@@ -22,8 +23,13 @@ export const AppContext: React.Context<IAppContext> = createContext<IAppContext>
 
 const AppProvider: React.FC<IProps> = ({ children }) => {
   const dispatch = useAppDispatch()
+  const { i18n } = useTranslation()
   const navigate = useNavigate()
   const [isTwink, setIsTwink] = useState(false)
+
+  useEffect(() => {
+    document.documentElement.setAttribute('lang', i18n.language)
+  }, [i18n.language])
 
   const logout = useCallback(() => {
     setIsTwink(false)

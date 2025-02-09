@@ -12,6 +12,7 @@ interface IProps {
 const Modal: React.FC<IProps> = ({ isOpen, onClose, triggerClose = false, children }) => {
   return (
     <StyledReactModal
+      bodyOpenClassName="modal"
       isOpen={isOpen}
       onRequestClose={onClose}
       appElement={document.getElementById('root') || undefined}

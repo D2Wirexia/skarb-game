@@ -1,24 +1,13 @@
 import { Link } from 'react-router-dom'
-import styled, { css } from 'styled-components'
+import styled from 'styled-components'
 
 import { Color } from '~/constants'
 
-interface IStyledAnchorProps {
-  $small: boolean
-}
-
-export const StyledAnchor = styled.a<IStyledAnchorProps>`
+export const StyledAnchor = styled.a`
   font-size: 14px;
   font-weight: 400;
   color: ${Color.White};
   text-decoration: none;
-
-  ${({ $small }) =>
-    $small &&
-    css`
-      font-size: 16px;
-      font-weight: 600;
-    `}
 
   &:hover,
   &:focus {
@@ -26,9 +15,14 @@ export const StyledAnchor = styled.a<IStyledAnchorProps>`
   }
 `
 
-export const StyledLink = styled(Link)`
+export const StyledLink = styled(Link)<{ $ignoreUnderline: boolean }>`
   font-size: 14px;
   font-weight: 600;
   color: ${Color.White};
   text-decoration: none;
+
+  &:hover,
+  &:focus {
+    text-decoration: ${({ $ignoreUnderline }) => ($ignoreUnderline ? 'none' : 'underline')};
+  }
 `

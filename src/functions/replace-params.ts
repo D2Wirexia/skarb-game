@@ -7,7 +7,3 @@ export const replaceParams = (route: string, params: ParamType): string => {
     route,
   )
 }
-
-export const parseSingleRoute = (route: string): string => {
-  return '/' + route.split('/')[1]
-}

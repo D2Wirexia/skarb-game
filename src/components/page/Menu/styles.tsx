@@ -1,11 +1,19 @@
+import { motion } from 'framer-motion'
 import hexToRgba from 'hex-to-rgba'
 import styled, { css } from 'styled-components'
 
-import { Link, Sculpt } from '~/components/shared'
+import { Sculpt } from '~/components/shared'
 import { Color, MEDIA } from '~/constants'
+
+export const Footer = styled(motion.footer)`
+  grid-area: footer;
+`
 
 export const Identifier = styled.div`
   color: ${hexToRgba(Color.White, 0.77)};
+  font-family: var(--font-roboto) !important;
+  line-height: 120%;
+  font-weight: 400;
 
   ${({ theme }) => css`
     font-size: ${theme.responsive(15)};
@@ -13,9 +21,10 @@ export const Identifier = styled.div`
 `
 export const Nickname = styled.div`
   color: ${Color.White};
+  font-family: var(--font-alegreya) !important;
 
   ${({ theme }) => css`
-    font-size: ${theme.responsive(20)};
+    font-size: ${theme.responsive(22)};
   `}
 `
 export const UserInfo = styled.div`
@@ -28,38 +37,65 @@ export const UserInfo = styled.div`
     gap: ${theme.responsive(5)};
   `}
 `
-export const UserContainer = styled(Link.AppNavigation)`
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-  background-color: transparent;
-
+export const UserContainer = styled(Sculpt.FocHovContainer.AppNavigation)`
   ${({ theme }) => css`
     gap: ${theme.responsive(8)};
-    border-radius: ${theme.responsive(8)};
     padding: ${theme.responsive(4, 10)};
   `}
-
-  &:hover,
-  &:focus {
-    background-color: ${hexToRgba(Color.White, 0.24)};
-  }
 `
 
-export const Logo = styled.div`
+export const Version = styled.div`
+  position: relative;
+  color: ${hexToRgba(Color.White, 0.6)};
+  font-family: var(--font-katibeh);
+
+  ${({ theme }) => css`
+    font-size: ${theme.responsive(18)};
+    bottom: ${theme.responsive(18)};
+  `}
+`
+
+export const Name = styled.div`
   color: ${Color.White};
 
   ${({ theme }) => css`
-    font-size: ${theme.responsive(22)};
+    font-size: ${theme.responsive(38)};
   `}
 `
 
-export const Content = styled(Sculpt.BoardSection)`
-  grid-area: content;
+export const Title = styled.div`
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font-katibeh);
+
+  ${({ theme }) => css`
+    gap: ${theme.responsive(8)};
+  `}
 `
 
-export const Navbar = styled(Sculpt.BoardSection)`
+export const Content = styled(motion.section)`
+  grid-area: content;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  ${MEDIA.MW} {
+    display: none;
+  }
+`
+
+export const Navbar = styled(motion.nav)`
   grid-area: navbar;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  ${({ theme }) => css`
+    gap: ${theme.responsive(20)};
+  `}
 `
 
 export const RightSide = styled.div`
@@ -70,7 +106,14 @@ export const RightSide = styled.div`
     gap: ${theme.responsive(24)};
   `}
 `
-export const LeftSide = styled.div``
+export const LeftSide = styled.div`
+  display: flex;
+  align-items: center;
+
+  ${({ theme }) => css`
+    gap: ${theme.responsive(12)};
+  `}
+`
 
 export const Header = styled(Sculpt.BoardSection)`
   grid-area: header;
@@ -91,15 +134,20 @@ export const Wrapper = styled.div`
   grid-template-rows: auto 1fr;
   grid-template-areas:
     'header header'
-    'navbar content';
+    'navbar content'
+    'footer footer';
 
   ${({ theme }) => css`
-    padding: ${theme.responsive(45, 40, 40)};
+    padding: ${theme.responsive(45, 40, 30)};
     gap: ${theme.responsive(40)};
-    grid-template-columns: ${theme.responsive(280)} 1fr;
+    grid-template-columns: min(${theme.responsive(674)}, 1fr) 1fr;
 
     ${MEDIA.MW} {
-      grid-template-columns: ${theme.responsive(90)} 1fr;
+      grid-template-areas:
+        'header'
+        'navbar'
+        'footer';
+      grid-template-columns: 1fr;
       gap: ${theme.responsive(18)};
       padding: ${theme.responsive(24)};
     }

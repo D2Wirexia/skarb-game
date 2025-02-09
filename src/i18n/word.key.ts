@@ -1,11 +1,21 @@
 export const Word = {
   Validation: {},
 
-  Label: {},
+  General: {
+    Support: 'general.support',
+  },
 
-  Placeholder: {},
+  Menu: {
+    CreateRoom: 'menu.create-room',
+    JoinToRoom: 'menu.join-to-room',
+    PackageEditor: 'menu.package-editor',
+    Rules: 'menu.rules',
+  },
 
-  Hint: {},
-
-  Tooltip: {},
-}
+  Settings: {
+    Game: 'settings.game',
+    Controller: 'settings.controller',
+    Language: 'settings.language',
+    Audio: 'settings.audio',
+  },
+} as const

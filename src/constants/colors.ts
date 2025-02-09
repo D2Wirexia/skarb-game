@@ -4,5 +4,12 @@ export enum Color {
   PurpleNoir = '#302F57',
   SpanishRoast = '#0C0F30',
   LostInSadness = '#151336',
+  BluePlaza = '#2F343C',
+  ChaosBlack = '#0B0D11',
+  RiverStyx = '#141521',
+  BlackHowl = '#1E1E2E',
+  DynamicBlack = '#1D1D1D',
   AtomicOrange = '#F6880A',
+  Gamboge = '#E49516',
+  UproarRed = '#F10F07',
 }

@@ -5,10 +5,15 @@ import { StyledLink } from './styles'
 
 interface IProps extends LinkProps {
   children: React.ReactNode
+  ignoreUnderline?: boolean
 }
 
-const LinkAppNavigation: React.FC<IProps> = ({ children, ...props }) => {
-  return <StyledLink {...props}>{children}</StyledLink>
+const LinkAppNavigation: React.FC<IProps> = ({ children, ignoreUnderline = false, ...props }) => {
+  return (
+    <StyledLink $ignoreUnderline={ignoreUnderline} {...props}>
+      {children}
+    </StyledLink>
+  )
 }
 
 export default React.memo(LinkAppNavigation)

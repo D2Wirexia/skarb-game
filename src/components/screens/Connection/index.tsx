@@ -1,31 +1,16 @@
-import lottie, { AnimationItem } from 'lottie-web'
-import React, { useEffect, useRef } from 'react'
+import React from 'react'
 
-import { Animation, Status, Version, Wrapper } from './styles'
+import { Name, Status, Version, Wrapper } from './styles'
 
-import astronaut from '@/lottie/astronaut.json'
+import { Icon, IconType } from '~/components/shared'
 import { EnvService } from '~/services'
 
 const ConnectionScreen: React.FC = () => {
-  const containerRef = useRef<HTMLDivElement | null>(null)
-  const animationRef = useRef<AnimationItem | null>(null)
-
-  useEffect(() => {
-    animationRef.current = lottie.loadAnimation({
-      container: containerRef.current as Element,
-      renderer: 'svg',
-      loop: true,
-      autoplay: true,
-      animationData: astronaut,
-    })
-
-    return () => animationRef.current?.destroy()
-  }, [])
-
   return (
     <Wrapper>
-      <Animation ref={containerRef} />
-      <Status>Initialization...</Status>
+      <Icon icon={IconType.Logo} width={284} height={284} />
+      <Name>Skarb Game</Name>
+      <Status>Connecting...</Status>
       <Version>Version: {EnvService.appVersion}</Version>
     </Wrapper>
   )

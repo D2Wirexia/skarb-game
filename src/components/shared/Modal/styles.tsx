@@ -9,10 +9,11 @@ export const Content = styled.div`
 `
 
 export const Overlay = styled.div`
-  background-color: ${hexToRgba(Color.LostInSadness, 0.6)} !important;
+  background-color: ${hexToRgba(Color.BlackHowl, 0.8)} !important;
   display: flex;
   justify-content: center;
   align-items: center;
+  backdrop-filter: blur(4px);
   z-index: 99;
 `
 

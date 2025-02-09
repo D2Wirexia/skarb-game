@@ -1,8 +1,11 @@
+import { useTranslation } from 'react-i18next'
+
 import { MEDIA } from '~/constants'
 import { useMedia } from '~/hooks'
 
 interface ITheme {
   responsive: (...r: number[]) => string
+  language: string
 }
 
 export default function useTheme(): ITheme {
@@ -12,6 +15,9 @@ export default function useTheme(): ITheme {
   const laptop = useMedia(MEDIA.VWD_LAPTOP)
   const tablet = useMedia(MEDIA.TABLET_V_MAX)
   const mobile = useMedia(MEDIA.MOB_LARGE)
+  const {
+    i18n: { language },
+  } = useTranslation()
 
   function responsive(...sizes: number[]): string {
     const cssString = (cb: (s: number) => string) => sizes.map(cb).join(' ')
@@ -34,7 +40,7 @@ export default function useTheme(): ITheme {
     return cssString((size: number) => `${size}px`)
   }
 
-  return { responsive }
+  return { responsive, language }
 }
 
 const calcMedia = {

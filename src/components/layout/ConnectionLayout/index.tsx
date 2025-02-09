@@ -4,15 +4,11 @@ import { Outlet } from 'react-router-dom'
 import { Wrapper } from './styles'
 
 import { AppContext } from '~/components/app/AppProvider'
-import {
-  ConfirmAccountScreen,
-  ConnectionScreen,
-  NewSessionDetectedScreen,
-} from '~/components/screens'
+import { ConnectionScreen, NewSessionDetectedScreen } from '~/components/screens'
 import { actions, useAppDispatch, useAppSelector } from '~/store'
 
 const ConnectionLayout: React.FC = () => {
-  const { isInitialized, isAuthenticated, emailConfirmed } = useAppSelector((state) => state.user)
+  const { isInitialized } = useAppSelector((state) => state.user)
   const { isTwink } = useContext(AppContext)
   const dispatch = useAppDispatch()
 
@@ -26,9 +22,9 @@ const ConnectionLayout: React.FC = () => {
     return <ConnectionScreen />
   }
 
-  if (isAuthenticated && !emailConfirmed) {
-    return <ConfirmAccountScreen />
-  }
+  // if (isAuthenticated && !emailConfirmed) {
+  //   return <ConfirmAccountScreen />
+  // }
 
   if (isTwink) {
     return <NewSessionDetectedScreen />

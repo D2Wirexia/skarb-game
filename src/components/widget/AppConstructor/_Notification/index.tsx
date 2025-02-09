@@ -1,14 +1,15 @@
 import React from 'react'
 
-import { Container } from './styles'
+import { Mark } from './styles'
 
-import { Icon, IconType } from '~/components/shared'
+import { Icon, IconType, Sculpt } from '~/components/shared'
 
 const Notification: React.FC = () => {
   return (
-    <Container>
+    <Sculpt.FocHovContainer.Button>
       <Icon icon={IconType.Notification} width={24} height={24} />
-    </Container>
+      <Mark />
+    </Sculpt.FocHovContainer.Button>
   )
 }
 

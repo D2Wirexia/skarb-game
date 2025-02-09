@@ -54,7 +54,6 @@ export const Wrapper = styled.div`
   justify-content: center;
   height: 100lvh;
   background-color: ${Color.LostInSadness};
-  user-select: none;
 
   ${({ theme }) => css`
     gap: ${theme.responsive(35)};

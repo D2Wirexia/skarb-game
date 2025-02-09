@@ -40,7 +40,7 @@ class Api {
   }
 }
 
-const Request = {}
+const Request = new Api()
 
 export default Request
 

@@ -15,3 +15,18 @@ declare module '*.png' {
   const png: string
   export default png
 }
+
+declare module '*.jpg' {
+  const jpg: string
+  export default jpg
+}
+
+declare module '*.svg' {
+  const content: string
+  export default content
+}
+
+declare module '*.mp3' {
+  const value: any
+  export default value
+}

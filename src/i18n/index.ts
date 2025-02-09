@@ -1,3 +1,2 @@
-export { default as i18n } from './i18n'
-export * from './local'
-export * from './word.key'
+export { default as i18n, Lang } from './i18n'
+export { Word } from './word.key'

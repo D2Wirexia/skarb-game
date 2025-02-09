@@ -3,11 +3,6 @@ import styled, { css } from 'styled-components'
 export const Photo = styled.img`
   position: absolute;
   border-radius: 50%;
-  user-select: none;
-  -webkit-user-drag: none;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
   aspect-ratio: 1;
 
   ${({ theme }) => css`

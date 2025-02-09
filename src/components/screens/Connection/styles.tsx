@@ -8,6 +8,7 @@ export const Version = styled.div`
   bottom: 0;
   right: 0;
   color: ${hexToRgba(Color.White, 0.66)};
+  font-family: var(--font-roboto) !important;
 
   ${({ theme }) => css`
     font-size: ${theme.responsive(14)};
@@ -17,35 +18,36 @@ export const Version = styled.div`
 
 export const Status = styled.div`
   color: ${Color.White};
-  font-family: var(--font-monserrat);
-  letter-spacing: 0.1em;
+  font-family: var(--font-roboto) !important;
+  font-weight: 400;
 
   ${({ theme }) => css`
-    font-size: ${theme.responsive(24)};
+    font-size: ${theme.responsive(20)};
   `}
 `
 
-export const Animation = styled.div`
-  max-height: 50vh;
-  aspect-ratio: 1920 / 1080;
+export const Name = styled.h2`
+  color: ${Color.White};
+  font-weight: 400;
+  font-family: var(--font-katibeh) !important;
+  line-height: 0.8;
 
   ${({ theme }) => css`
-    min-height: ${theme.responsive(210)};
-    margin-top: ${theme.responsive(-100)};
+    font-size: ${theme.responsive(58)};
+    margin: ${theme.responsive(20, 0, 78)};
   `}
 `
 
 export const Wrapper = styled.div`
+  cursor: wait;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   height: 100lvh;
   background-color: ${Color.LostInSadness};
-  user-select: none;
 
   ${({ theme }) => css`
-    gap: ${theme.responsive(20)};
     padding: ${theme.responsive(28)};
   `}
 `

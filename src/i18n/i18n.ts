@@ -3,7 +3,11 @@ import LanguageDetector from 'i18next-browser-languagedetector'
 import { initReactI18next } from 'react-i18next'
 
 import { en, ua } from './languages'
-import { Lang } from './local'
+
+export enum Lang {
+  English = 'en',
+  Ukraine = 'ua',
+}
 
 const resources = {
   [Lang.English]: {
@@ -19,7 +23,7 @@ i18n
   .use(LanguageDetector)
   .init({
     resources,
-    supportedLngs: [Lang.English],
+    supportedLngs: [Lang.English, Lang.Ukraine],
     fallbackLng: Lang.English,
     interpolation: {
       escapeValue: false,

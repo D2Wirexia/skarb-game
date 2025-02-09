@@ -1,30 +1,37 @@
-import React, { useContext } from 'react'
+import React from 'react'
+import { useTranslation } from 'react-i18next'
 
 import {
-  Wrapper,
+  Content,
+  Footer,
   Header,
-  Navbar,
+  Identifier,
   LeftSide,
+  Name,
+  Navbar,
+  Nickname,
   RightSide,
-  Logo,
+  Title,
   UserContainer,
   UserInfo,
-  Nickname,
-  Identifier,
-  Content,
+  Version,
+  Wrapper,
 } from './styles'
 
-import { AppContext } from '~/components/app/AppProvider'
-import { AppConstructor, LanguagePicker, UserConstructor } from '~/components/widget'
+import { Button, Icon, IconType } from '~/components/shared'
+import { AppConstructor, UserConstructor } from '~/components/widget'
 import { Route } from '~/constants'
 import { replaceParams } from '~/functions'
+import { Word } from '~/i18n'
+import { EnvService } from '~/services'
 import { useAppSelector } from '~/store'
 
 const transition = { duration: 0.5, type: 'tween', stiffness: 500, delay: 0.3 }
 
 const Menu: React.FC = () => {
   const { identifier, photo, nickname } = useAppSelector((state) => state.user)
-  const { setIsTwink } = useContext(AppContext)
+
+  const { t } = useTranslation()
 
   return (
     <Wrapper>
@@ -45,16 +52,24 @@ const Menu: React.FC = () => {
         transition={transition}
       >
         <LeftSide>
-          <Logo onClick={() => setIsTwink(true)}>Skarb Game</Logo>
+          <Icon icon={IconType.Logo} width={52} height={52} />
+          <Title>
+            <Name>Skarb Game</Name>
+            <Version>Version: {EnvService.appVersion}</Version>
+          </Title>
         </LeftSide>
         <RightSide>
-          <LanguagePicker />
+          <AppConstructor.Discord />
+          <AppConstructor.Settings />
           <AppConstructor.Notification />
-          <UserContainer to={replaceParams(Route.Profile, { id: identifier as string })}>
+          <UserContainer
+            shape={'square'}
+            to={replaceParams(Route.Profile, { id: identifier as string })}
+          >
             <UserConstructor.Avatar.SmallMenu photo={photo} />
             <UserInfo>
               <Nickname>{nickname}</Nickname>
-              <Identifier>@{identifier}</Identifier>
+              <Identifier>#{identifier}</Identifier>
             </UserInfo>
           </UserContainer>
         </RightSide>
@@ -62,39 +77,51 @@ const Menu: React.FC = () => {
       <Navbar
         initial={{
           opacity: 0,
-          transform: 'translate(-300px, 0)',
         }}
         animate={{
           opacity: 1,
-          transform: 'translate(0, 0)',
         }}
         exit={{
           opacity: 0,
-          transform: 'translate(-300px, 0)',
           transition: { delay: 0 },
         }}
         transition={transition}
       >
-        &nbsp;
+        <Button.MenuButton shape={1} to={'/'} text={t(Word.Menu.CreateRoom)} />
+        <Button.MenuButton shape={2} to={'/'} text={t(Word.Menu.JoinToRoom)} />
+        <Button.MenuButton shape={3} to={'/'} text={t(Word.Menu.PackageEditor)} />
+        <Button.MenuButton shape={4} to={'/'} text={t(Word.Menu.Rules)} />
       </Navbar>
       <Content
         initial={{
           opacity: 0,
-          transform: 'translate(440px, 840px)',
         }}
         animate={{
           opacity: 1,
-          transform: 'translate(0, 0)',
         }}
         exit={{
           opacity: 0,
-          transform: 'translate(440px, 840px)',
           transition: { delay: 0 },
         }}
         transition={transition}
       >
-        &nbsp;
+        <AppConstructor.SubscriptionBanner />
       </Content>
+      <Footer
+        initial={{
+          opacity: 0,
+        }}
+        animate={{
+          opacity: 1,
+        }}
+        exit={{
+          opacity: 0,
+          transition: { delay: 0 },
+        }}
+        transition={transition}
+      >
+        <AppConstructor.Footer />
+      </Footer>
     </Wrapper>
   )
 }
