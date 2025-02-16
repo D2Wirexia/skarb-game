@@ -5,7 +5,6 @@ import { Color } from '~/constants'
 export const GlobalStyles = createGlobalStyle`
   :root {
     --font-roboto: "Roboto";
-    --font-kimberley: "Kimberley";
     --font-alegreya: "Alegreya";
     --font-katibeh: "Katibeh";
     --transition: all 0.3s easy-in-out;
@@ -17,16 +16,19 @@ export const GlobalStyles = createGlobalStyle`
     box-sizing: border-box;
     font-family: inherit;
     line-height: inherit;
-    user-select: none;
-    -webkit-user-drag: none;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
   }
 
   body {
     background: ${Color.LostInSadness};
       font-family: var(--font-alegreya) !important;
+  }
+  
+  div, span, img {
+      user-select: none;
+      -webkit-user-drag: none;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
   }
 
   button {
@@ -39,7 +41,6 @@ export const GlobalStyles = createGlobalStyle`
 
     &:focus {
       outline: none;
-      border: none;
     }
   }
 
@@ -48,7 +49,6 @@ export const GlobalStyles = createGlobalStyle`
 
     &:focus {
       outline: none;
-      border: none;
     }
   }
 
@@ -68,6 +68,10 @@ export const GlobalStyles = createGlobalStyle`
   select:-webkit-autofill:hover,
   select:-webkit-autofill:focus {
     border: none;
+  }
+
+  input[type="file"] {
+      display: none;
   }
 
   textarea:focus, input:focus {
@@ -119,12 +123,6 @@ export const GlobalStyles = createGlobalStyle`
     font-family: 'Roboto';
     font-weight: 900;
     src: url('../../../assets/fonts/Roboto/Roboto-Black.ttf') format('truetype');
-  }
-
-  @font-face {
-    font-family: 'Kimberley';
-    font-weight: 900;
-    src: url('../../../assets/fonts/Kimberley/Kimberley-Black.ttf') format('truetype');
   }
 
   @font-face {

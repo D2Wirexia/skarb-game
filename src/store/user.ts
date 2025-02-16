@@ -13,10 +13,10 @@ const initialState: IUserState = {
   isInitialized: false,
   isAuthenticated: !!localStorage.getItem(LocalStorageKeys.Session),
   email: '',
-  emailConfirmed: false,
   nickname: '',
-  photo: '',
+  photo: null,
   identifier: null,
+  createdAt: new Date(),
 }
 
 export const userReducer = createSlice({

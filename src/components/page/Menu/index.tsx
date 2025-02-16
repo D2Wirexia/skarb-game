@@ -21,7 +21,6 @@ import {
 import { Button, Icon, IconType } from '~/components/shared'
 import { AppConstructor, UserConstructor } from '~/components/widget'
 import { Route } from '~/constants'
-import { replaceParams } from '~/functions'
 import { Word } from '~/i18n'
 import { EnvService } from '~/services'
 import { useAppSelector } from '~/store'
@@ -62,11 +61,8 @@ const Menu: React.FC = () => {
           <AppConstructor.Discord />
           <AppConstructor.Settings />
           <AppConstructor.Notification />
-          <UserContainer
-            shape={'square'}
-            to={replaceParams(Route.Profile, { id: identifier as string })}
-          >
-            <UserConstructor.Avatar.SmallMenu photo={photo} />
+          <UserContainer to={Route.Profile} shape={'square'}>
+            <UserConstructor.Avatar.Small photo={photo} />
             <UserInfo>
               <Nickname>{nickname}</Nickname>
               <Identifier>#{identifier}</Identifier>

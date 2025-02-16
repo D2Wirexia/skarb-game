@@ -1,9 +1,10 @@
 import React from 'react'
 import { useTranslation } from 'react-i18next'
 
-import { Container, Text } from './styles'
+import { Container, Text, SupButton, Label } from './styles'
 
-import { Link } from '~/components/shared'
+import { Icon, IconType, Link } from '~/components/shared'
+import { Color } from '~/constants'
 import { Word } from '~/i18n'
 
 const Footer: React.FC = () => {
@@ -17,7 +18,10 @@ const Footer: React.FC = () => {
       <Link.AppNavigation to={'/'}>
         <Text>Privacy & Policy</Text>
       </Link.AppNavigation>
-      <Text>{t(Word.General.Support)}</Text>
+      <SupButton href="mailto:skarb.game.support@gmail.com" target="_blank">
+        <Icon icon={IconType.Debug} width={16} height={16} fill={Color.White} />
+        <Label>{t(Word.General.Support)}</Label>
+      </SupButton>
     </Container>
   )
 }

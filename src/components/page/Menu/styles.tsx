@@ -36,6 +36,10 @@ export const UserInfo = styled.div`
   ${({ theme }) => css`
     gap: ${theme.responsive(5)};
   `}
+
+  ${MEDIA.MOB_LARGE} {
+    display: none;
+  }
 `
 export const UserContainer = styled(Sculpt.FocHovContainer.AppNavigation)`
   ${({ theme }) => css`
@@ -72,6 +76,10 @@ export const Title = styled.div`
   ${({ theme }) => css`
     gap: ${theme.responsive(8)};
   `}
+
+  ${MEDIA.MOB_LARGE} {
+    display: none;
+  }
 `
 
 export const Content = styled(motion.section)`

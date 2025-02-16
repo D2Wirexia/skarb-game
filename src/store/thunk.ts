@@ -15,11 +15,11 @@ const initialize = createAsyncThunk<void, void, { state: RootState }>(
       dispatch(
         actions.user.updateUser({
           email: 'example@gmail.com',
-          emailConfirmed: false,
           nickname: 'Wirexia',
           photo:
             'https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSJhcetOBwA-I9T3Jud_ScdMlVEs5UD09XXZXD_7RomhU6cjA_t',
           identifier: 'b9E5-cKf4-q3N',
+          createdAt: new Date(),
         }),
       )
     } catch (e) {

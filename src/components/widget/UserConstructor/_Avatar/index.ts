@@ -1,1 +1,2 @@
-export { default as AvatarSmallMenu } from './_SmallMenu'
+export { default as AvatarSmall } from './_Small'
+export { default as AvatarBig } from './_Big'

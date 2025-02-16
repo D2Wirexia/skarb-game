@@ -2,11 +2,13 @@ import React from 'react'
 
 import { Container, Horseshoe, Photo } from './styles'
 
+import defaultAvatar from '@/images/default-avatar.png'
+
 interface IProps {
-  photo: string
+  photo: string | null
 }
 
-const AvatarSmallMenu: React.FC<IProps> = ({ photo }) => {
+const AvatarSmall: React.FC<IProps> = ({ photo }) => {
   return (
     <Container>
       <Horseshoe>
@@ -36,9 +38,9 @@ const AvatarSmallMenu: React.FC<IProps> = ({ photo }) => {
           </defs>
         </svg>
       </Horseshoe>
-      <Photo src={photo} alt="avatar" />
+      <Photo src={photo ?? defaultAvatar} alt="avatar" />
     </Container>
   )
 }
 
-export default React.memo(AvatarSmallMenu)
+export default React.memo(AvatarSmall)

@@ -5,5 +5,5 @@ export enum Route {
   /* Auth */
   Login = '/login',
 
-  Profile = '/profile/:id',
+  Profile = '/profile',
 }

@@ -1,7 +1,7 @@
 export interface IUser {
   email: string
-  emailConfirmed: boolean
   nickname: string
-  photo: string
+  photo: string | null
   identifier: string | null
+  createdAt: Date
 }

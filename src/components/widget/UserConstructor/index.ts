@@ -1,6 +1,7 @@
 import React from 'react'
 
-import { AvatarSmallMenu } from './_Avatar'
+import { AvatarSmall, AvatarBig } from './_Avatar'
+import SubscriptionLabel from './_SubscriptionLabel'
 
 const UserConstructor: React.FC = () => {
   return undefined
@@ -8,6 +9,8 @@ const UserConstructor: React.FC = () => {
 
 export default Object.assign(React.memo(UserConstructor), {
   Avatar: {
-    SmallMenu: AvatarSmallMenu,
+    Small: AvatarSmall,
+    Big: AvatarBig,
   },
+  SubscriptionLabel,
 })

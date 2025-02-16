@@ -1,5 +1,6 @@
 import styled, { css } from 'styled-components'
 
+import { Sculpt } from '~/components/shared'
 import { Color } from '~/constants'
 
 export const Banner = styled.img`
@@ -9,7 +10,7 @@ export const Banner = styled.img`
   transition: transform 0.3s;
 `
 
-export const Container = styled.button`
+export const Container = styled(Sculpt.FocHovContainer.AppNavigation)`
   overflow: hidden;
 
   ${({ theme }) => css`

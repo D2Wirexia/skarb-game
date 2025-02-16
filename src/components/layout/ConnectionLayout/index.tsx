@@ -22,7 +22,7 @@ const ConnectionLayout: React.FC = () => {
     return <ConnectionScreen />
   }
 
-  // if (isAuthenticated && !emailConfirmed) {
+  // if (isAuthenticated) {
   //   return <ConfirmAccountScreen />
   // }
 

@@ -40,7 +40,6 @@ export const Description = styled.h4`
   `}
 `
 export const Title = styled.h2`
-  font-family: var(--font-kimberley);
   font-weight: 700;
   text-align: center;
   text-transform: uppercase;

@@ -1,5 +1,6 @@
 export enum Color {
   White = '#FFFFFF',
+  BlueDolphin = '#BDC6D1',
   BubblegumCrisis = '#EECBF2',
   PurpleNoir = '#302F57',
   SpanishRoast = '#0C0F30',
@@ -7,7 +8,7 @@ export enum Color {
   BluePlaza = '#2F343C',
   ChaosBlack = '#0B0D11',
   RiverStyx = '#141521',
-  BlackHowl = '#1E1E2E',
+  BlackHowl = '#1D1E2C',
   DynamicBlack = '#1D1D1D',
   AtomicOrange = '#F6880A',
   Gamboge = '#E49516',

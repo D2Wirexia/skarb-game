@@ -3,11 +3,11 @@ import styled, { css } from 'styled-components'
 export const Photo = styled.img`
   position: absolute;
   border-radius: 50%;
+  object-fit: cover;
   aspect-ratio: 1;
 
   ${({ theme }) => css`
     width: calc(100% - ${theme.responsive(10)});
-    height: calc(100% - ${theme.responsive(10)});
   `}
 `
 
